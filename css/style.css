@@ -1,0 +1,279 @@
+:root {
+  --dark-color: #090F14;
+  --olive: #A9BA5A;
+  --green: #00ba69;
+  --darkGreen: #214F3D;
+}
+
+body {
+  font-family: 'Baloo Bhaina 2', cursive;
+  margin: 0;
+  padding: 0;
+}
+
+/* loader https://codepen.io/mahdi/pen/ooKxaK?editors=1100 */
+.loader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  z-index: 999;
+}
+
+.hideLoader {
+  display: none !important;
+}
+
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.banana {
+  padding: 30px;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  border-radius: 50%;
+  background: white;
+  float: left;
+  margin: 50px 100px;
+}
+
+.banana::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  border-radius: 50%;
+  border: solid 2px #00ba69;
+  top: 0;
+  left: 0;
+  animation: grow 1s infinite ease-in-out;
+}
+
+.banana::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  border-radius: 50%;
+  border: solid 2px #00ba69;
+  top: 0;
+  left: 0;
+  animation: grow 1s 0.5s infinite ease-in-out;
+}
+
+.d {
+  background: transparent;
+}
+
+.d::before {
+  border: 2px dotted #00ba69;
+  border-bottom: 4px solid #00ba69;
+  border-top: 4px solid #00ba69;
+  animation: spinning 1.5s infinite linear;
+}
+
+.d::after {
+  animation: grow 2s 0.5s infinite ease-out;
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes spinning {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+/* navbar */
+.nav-link {
+  position: relative;
+  color: var(--dark-color);
+
+}
+
+.nav-link:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  display: block;
+  margin-top: 5px;
+  right: 0;
+  background: var(--dark-color);
+  transition: width .7s ease;
+  -webkit-transition: width .7s ease;
+}
+
+.nav-link:hover {
+  color: var(--dark-color);
+}
+
+.nav-link:hover:after {
+  width: 100%;
+  left: 0;
+}
+
+.nav-icon {
+  font-size: 1.2rem;
+  text-decoration: none !important;
+  color: var(--dark-color);
+  margin: 0 0.5rem 0 0.3rem;
+  transition: color 0.3s ease;
+}
+
+.nav-icon:hover {
+  color: var(--dark-color);
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-icons {
+    margin-top: 0.5rem;
+  }
+}
+
+/* header */
+.height-max {
+  min-height: calc(100vh - 70px);
+  background: url('../img/background.jpg') center/cover no-repeat
+}
+
+.header-btn {
+  transition: all 0.4s ease;
+}
+
+
+@media screen and (min-width: 768px) {
+  .header h1 {
+    font-size: 4rem;
+  }
+
+  .header-p {
+    max-width: 500px;
+    font-size: 1.2rem;
+  }
+}
+
+/* collections */
+.collections {
+  margin-top: 15rem;
+}
+
+.collections .card {
+  border: none;
+  position: relative;
+}
+
+.collections .card-body{
+  background:var(--darkGreen);
+}
+
+.collections .card-img img {
+  width: 170px;
+  height: 180px;
+  border-radius: 40%;
+  position: absolute;
+  top: -45%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.curved-border {
+  border-top-left-radius: 3rem;
+  border-bottom-right-radius: 3rem;
+}
+
+.collections .card-text h4 {
+  color: var(--olive);
+}
+
+.collections-btn {
+  border-top-left-radius: 1.2rem;
+  border-bottom-right-radius: 1.2rem;
+  background-color: #fff;
+  outline: var(--darkGreen);
+}
+.collections-btn:hover{
+  background-color:var(--darkGreen);
+}
+
+@media screen and (max-width: 992px) {
+  .card-img img {
+    top: -35%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .collections {
+    margin-top: 7rem;
+  }
+  
+  .collections .card-img img {
+    width: 120px;
+    height: 140px;
+    border-radius: 40%;
+    top: 65%;
+    left: 0;
+    transform: translate(10%, -50%);
+  }
+
+  .collections .card-body {
+    padding: 0;
+    margin: 0 0 6rem 0;
+  }
+
+  .collections .card-text {
+    padding: 0 1rem 0 1rem!important;
+    min-width: 230px;
+    margin: 0 auto;
+  }
+
+  .collections .card-body button{
+    margin-bottom:0.6rem;
+    margin-left: 1rem;
+  }
+}
+
+/* about */
+.about h1{
+  color:var(--darkGreen);
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.about-img{
+  height: 80vh;
+}
+
+@media screen and (max-width:768px){
+  .about h1{
+    text-align:center;
+    margin: 2.5rem auto;
+  }
+  .about-img {
+    width: 100%;
+  }
+}
