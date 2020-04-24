@@ -406,15 +406,14 @@ h1 {
 }
 
 /* banner2 */
-#banner-care {
-  background-color: var(--light-color);
-}
-
 #banner-care .banner-img {
   order: -1;
 }
 
 /* footer */
+.footer{
+  background-color:var(--light-color);
+}
 .horizontal-line {
   height: 1px;
   width: 100%;
