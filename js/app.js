@@ -161,16 +161,19 @@ const DisplayPlants = ((CreatePlants) => {
     plants.forEach(plant => {
       data += `
       <!-- single item -->
-      <div class="col-6 col-lg-4 single-plant ${plant.size}">
+      <div class="col-sm-6 col-lg-4 single-plant ${plant.size}">
         <div class="card plant-card">
-          <img src="${plant.img}" alt="plant" class="card-img-top plant-img">
+          <div class="plant-img-div">
+            <img src="${plant.img}" alt="plant" class="card-img-top plant-img">
+            <button class="btn btn-outline-dark add-btn">add to cart</button>
+          </div>
           <!-- card body -->
           <div class="card-body px-0">
             <div class="plant-info d-flex justify-content-between">
               <!-- first flex child -->
               <div class="plant-text justify-content-start">
                 <h6 class="text-muted">${plant.sizeDescription}</h6>
-                <h5 class="text-capitalize">${plant.name}</h5>
+                <h5 class="text-capitalize plant-name">${plant.name}</h5>
               </div>
               <!-- second flex child -->
               <div class="plant-value align-self-center">

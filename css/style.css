@@ -124,28 +124,12 @@ h1 {
 /* navbar */
 .nav-link {
   color: var(--dark-color);
-  border-top-left-radius: 0.9rem;
-  border-bottom-right-radius: 0.9rem;
-  border: 1px solid #fff;
-  transition: border-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .nav-link:hover {
-  color: var(--dark-color);
-  border-color: var(--darkGreen);
-}
-
-.nav-icon {
-  font-size: 1.2rem;
-  text-decoration: none !important;
-  color: var(--dark-color);
-  margin: 0 0.5rem 0 0.3rem;
-  transition: color 0.3s ease;
-}
-
-.nav-icon:hover {
-  color: var(--dark-color);
-  opacity: 0.5;
+  text-decoration: underline;
+  color: var(--olive);
 }
 
 @media screen and (max-width: 768px) {
@@ -292,10 +276,10 @@ h1 {
 
 /* featured */
 .featured-card {
-  padding:0!important;
+  padding: 0 !important;
   border-top-right-radius: 0;
   border-bottom-left-radius: 0;
-  border-color:var(--olive);
+  border-color: var(--olive);
 }
 
 .featured-btn {
@@ -316,7 +300,7 @@ h1 {
   font-size: 1.5rem;
 }
 
-.featured-img{
+.featured-img {
   border-top-left-radius: 3rem;
   border-top-right-radius: 0;
 }
@@ -411,9 +395,10 @@ h1 {
 }
 
 /* footer */
-.footer{
-  background-color:var(--light-color);
+.footer {
+  background-color: var(--light-color);
 }
+
 .horizontal-line {
   height: 1px;
   width: 100%;
@@ -421,20 +406,63 @@ h1 {
   margin: 2rem 0;
 }
 
-/* shopping section */
-.filter-btn{
-  cursor:pointer;
+/* ----------Shopping section-------- */
+.filter-btn,
+.plant-name {
+  cursor: pointer;
 }
 
-.plant-value{
-  font-size:2rem;
+.filter-btn:hover,
+.plant-name:hover {
+  text-decoration: underline;
+  color: var(--orange);
 }
-.plant-card{
+
+.plant-value {
+  font-size: 2rem;
+}
+
+.plant-card {
   border: none;
+  overflow: hidden;
+}
+
+.plant-img-div {
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  
+}
+
+.plant-img-div img {
+  transition: all 0.3s linear;
+}
+
+.add-btn {
+  position: absolute;
+  width: 80%;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  border:white;
+  opacity: 0.8;
+  font-size:1.5rem;
+  visibility: hidden;
+}
+
+.add-btn:hover{
+  background-color: white;
+  border:white;
+  opacity:1;
+  color: var(--dark-color);
+}
+
+.plant-img-div:hover .add-btn {
+  visibility: visible;
 }
 
 /* favourite */
-.favourite .horizontal-line{
-  background-color:rgba(0,0,0,0.1);
+.favourite .horizontal-line {
+  background-color: rgba(0, 0, 0, 0.1);
 }
-

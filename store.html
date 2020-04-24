@@ -52,29 +52,26 @@
     <div class="collapse navbar-collapse mr-4" id="nav">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item mx-2">
-          <a href="index.html" class="nav-link text-uppercase">home</a>
+          <a href="index.html" class="nav-link">home</a>
         </li>
         <li class="nav-item mx-2">
-          <a href="#about" class="nav-link text-uppercase">about</a>
+          <a href="#about" class="nav-link">about</a>
         </li>
         <li class="nav-item active mx-2">
-          <a href="store.html" class="nav-link text-uppercase">store</a>
+          <a href="store.html" class="nav-link">store</a>
         </li>
         <li class="nav-item mx-2">
-          <a href="#contact" class="nav-link text-uppercase">contact</a>
+          <a href="#contact" class="nav-link">contact</a>
         </li>
       </ul>
-      <div class="nav-icons">
-        <a href="#" class="nav-icon">
-          <i class="fab fa-instagram fa-fw"></i>
-        </a>
-        <a href="#" class="nav-icon">
-          <i class="fab fa-facebook fa-fw"></i>
-        </a>
-        <a href="#" class="nav-icon">
-          <i class="fab fa-twitter fa-fw"></i>
-        </a>
-      </div>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a href="" class="nav-link">sign in</a>
+        </li>
+        <li class="nav-item">
+          <a href="" class="nav-link">cart(<span>0</span>)</a>
+        </li>
+      </ul>
     </div>
   </nav>
   <!-- end of nav section -->
@@ -97,9 +94,14 @@
             <h5 class="text-uppercase filtered-plants">all plants</h5>
             <div class="row" id="store-container">
               <!-- single item -->
-              <div class="col-6 col-lg-4">
+              <div class="col-sm-6 col-lg-4">
                 <div class="card plant-card">
-                  <img src="img/small-1.jpg" alt="plant" class="card-img-top plant-img">
+                  <div class="plant-img-div">
+                    <img src="img/small-1.jpg" alt="plant" class="card-img-top plant-img">
+                    <button class="btn btn-outline-dark add-btn">add to cart</button>
+
+                  </div>
+                 
                   <!-- card body -->
                   <div class="card-body px-0">
                     <div class="plant-info d-flex justify-content-between">
@@ -138,7 +140,9 @@
         <!-- single item -->
         <div class="col-md-3 col-6">
           <div class="card plant-card">
-            <img src="/img/small-1.jpg" alt="plant" class="card-img-top plant-img">
+            <div class="plant-img-div">
+              <img src="img/small-1.jpg" alt="plant">
+            </div>
             <!-- card body -->
             <div class="card-body px-0">
               <div class="plant-info d-flex justify-content-between">
