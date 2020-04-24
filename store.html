@@ -24,7 +24,200 @@
 </head>
 
 <body>
-Store page
+  <!-- loader section -->
+  <div class="loader d-flex justify-content-center align-items-center">
+    <div class="banana d">
+      <svg class="logo" width="42px" height="27px" viewBox="0 0 42 27" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <path
+          d="M27.2861584,12.161723 C21.878637,13.1079515 17.6922039,20.3685835 15.4747077,25.1841521 C13.3245071,4.20375459 42,0 42,0 C42,0 37.9221081,28.5085611 15.7102421,26.9373612 L27.2861584,12.161723 Z M9.68859135,25.3642259 L4.07597867,14.6643189 C3.16588397,18.4076368 6.95830724,23.2066496 9.14123129,25.5907604 C-4.2897248,21.7286768 1.04594976,3.21222934 1.04594976,3.21222934 C1.04594976,3.21222934 15.98106,12.9521138 9.68859135,25.3642259 Z"
+          id="" fill="#00ba69"></path>
+      </svg>
+    </div>
+  </div>
+  <!-- end of loader section -->
+
+  <!-- nav section -->
+  <nav class="navbar navbar-expand-md py-0" id="navbar">
+    <a href="#" class="navbar-brand">
+      <img src="./img/plantiful-logo.png" width="60px" alt="logo">
+    </a>
+    <!-- toggle btn -->
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#nav">
+      <span class="navbar-icon">
+        <i class="fas fa-bars"></i>
+      </span>
+    </button>
+    <!-- nav -->
+    <div class="collapse navbar-collapse mr-4" id="nav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item mx-2">
+          <a href="index.html" class="nav-link text-uppercase">home</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a href="#about" class="nav-link text-uppercase">about</a>
+        </li>
+        <li class="nav-item active mx-2">
+          <a href="store.html" class="nav-link text-uppercase">store</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a href="#contact" class="nav-link text-uppercase">contact</a>
+        </li>
+      </ul>
+      <div class="nav-icons">
+        <a href="#" class="nav-icon">
+          <i class="fab fa-instagram fa-fw"></i>
+        </a>
+        <a href="#" class="nav-icon">
+          <i class="fab fa-facebook fa-fw"></i>
+        </a>
+        <a href="#" class="nav-icon">
+          <i class="fab fa-twitter fa-fw"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+  <!-- end of nav section -->
+
+  <!-- store list section -->
+  <section class="store my-5 pt-5" id="store">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2 filter " id="filter">
+          <h4 class="">Categories</h4>
+          <ul class="nav d-flex flex-column text-capitalize">
+            <li class="filter-btn my-1" data-filter="all">all plants</li>
+            <li class="filter-btn my-1" data-filter="small">small</li>
+            <li class="filter-btn my-1" data-filter="medium">medium</li>
+            <li class="filter-btn my-1" data-filter="large">large</li>
+          </ul>
+        </div>
+        <div class="col-md-10 item-list" id="item-list">
+          <div class="container">
+            <h5 class="text-uppercase filtered-plants">all plants</h5>
+            <div class="row" id="store-container">
+              <!-- single item -->
+              <div class="col-6 col-lg-4">
+                <div class="card plant-card">
+                  <img src="img/small-1.jpg" alt="plant" class="card-img-top plant-img">
+                  <!-- card body -->
+                  <div class="card-body px-0">
+                    <div class="plant-info d-flex justify-content-between">
+                      <!-- first flex child -->
+                      <div class="plant-text justify-content-start">
+                        <h6 class="text-muted">Small 6"-10" tall</h6>
+                        <h5 class="text-capitalize">anthurium superbum</h5>
+                      </div>
+                      <!-- second flex child -->
+                      <div class="plant-value align-self-center">
+                        $<span class="plant-price">25</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- end of card body -->
+                </div>
+              </div>
+              <!-- end of single item -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- store list section -->
+
+  <!-- favourite section -->
+  <section class="favourite" id="favourite">
+    <div class="container">
+      <div class="row">
+        <div class="horizontal-line"></div>
+        <h1 class="text-uppercase mx-auto my-4">our best sellers</h1>
+      </div>
+
+      <div class="row mx-auto my-auto" id="favourite-info">
+        <!-- single item -->
+        <div class="col-md-3 col-6">
+          <div class="card plant-card">
+            <img src="/img/small-1.jpg" alt="plant" class="card-img-top plant-img">
+            <!-- card body -->
+            <div class="card-body px-0">
+              <div class="plant-info d-flex justify-content-between">
+                <!-- first flex child -->
+                <div class="plant-text justify-content-start">
+                  <h6 class="text-capitalize">anthurium superbum</h6>
+                </div>
+                <!-- second flex child -->
+                <div class="plant-value align-self-center">
+                  $<span class="plant-price">25</span>
+                </div>
+              </div>
+            </div>
+            <!-- end of card body -->
+          </div>
+        </div>
+        <!-- end of single item -->
+      </div>
+    </div>
+  </section>
+  <!-- end of favourite section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- footer -->
+  <footer class="footer py-5" id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 col-md-6 my-auto">
+          <div class="footer-text">
+            <h1 class="mb-3">Let's be friends.</h1>
+            <form action="">
+              <div class="input-group mb-3 footer-input">
+                <input type="text" class="form-control-dark p-2 " placeholder=" Enter your email">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" id="button-addon2">Subscribe</button>
+                </div>
+              </div>
+            </form>
+            <div class="horizontal-line"></div>
+            <div class="text-capitalize d-flex justify-content-between w-75">
+              <ul class="nav flex-column">
+                <li><a class="text-dark" href="">home</a></li>
+                <li><a class="text-dark" href="">about</a></li>
+                <li><a class="text-dark" href="">store</a></li>
+                <li><a class="text-dark" href="">contact</a></li>
+              </ul>
+              <ul class="nav flex-column">
+                <li><a class="text-dark" href="">FAQ</a></li>
+                <li><a class="text-dark" href="">Instagram</a></li>
+                <li><a class="text-dark" href="">Facebook</a></li>
+                <li><a class="text-dark" href="">Plant Care 101</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7 col-md-6">
+          <div class="footer-img">
+            <img src="img/footer.jpg" class="img-fluid" alt="three plants">
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- end of footer -->
+
+  <!-- javascript -->
+  <script src="js/app.js"></script>
 </body>
 
 </html>

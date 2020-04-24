@@ -123,31 +123,16 @@ h1 {
 
 /* navbar */
 .nav-link {
-  position: relative;
   color: var(--dark-color);
-
-}
-
-.nav-link:after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 3px;
-  display: block;
-  margin-top: 5px;
-  right: 0;
-  background: var(--dark-color);
-  transition: width .7s ease;
-  -webkit-transition: width .7s ease;
+  border-top-left-radius: 0.9rem;
+  border-bottom-right-radius: 0.9rem;
+  border: 1px solid #fff;
+  transition: border-color 0.3s ease;
 }
 
 .nav-link:hover {
   color: var(--dark-color);
-}
-
-.nav-link:hover:after {
-  width: 100%;
-  left: 0;
+  border-color: var(--darkGreen);
 }
 
 .nav-icon {
@@ -307,9 +292,10 @@ h1 {
 
 /* featured */
 .featured-card {
-  border-color: var(--olive);
+  padding:0!important;
   border-top-right-radius: 0;
   border-bottom-left-radius: 0;
+  border-color:var(--olive);
 }
 
 .featured-btn {
@@ -330,6 +316,11 @@ h1 {
   font-size: 1.5rem;
 }
 
+.featured-img{
+  border-top-left-radius: 3rem;
+  border-top-right-radius: 0;
+}
+
 @media screen and (max-width: 768px) {
   .featured-card {
     flex-direction: row;
@@ -337,7 +328,7 @@ h1 {
   }
 
   .featured-img {
-    width: 100px;
+    width: 110px;
     margin-right: 1rem;
     justify-content: center;
   }
@@ -348,9 +339,11 @@ h1 {
 #banner-office {
   background-color: var(--darkGreen);
 }
-#banner-office h1{
+
+#banner-office h1 {
   color: #fff;
 }
+
 .banner .max-height {
   height: 500px;
 }
@@ -422,10 +415,27 @@ h1 {
 }
 
 /* footer */
-.horizontal-line{
-  height:1px;
-  width:100%;
+.horizontal-line {
+  height: 1px;
+  width: 100%;
   background-color: var(--dark-color);
-  margin:2rem 0;
+  margin: 2rem 0;
+}
+
+/* shopping section */
+.filter-btn{
+  cursor:pointer;
+}
+
+.plant-value{
+  font-size:2rem;
+}
+.plant-card{
+  border: none;
+}
+
+/* favourite */
+.favourite .horizontal-line{
+  background-color:rgba(0,0,0,0.1);
 }
 
