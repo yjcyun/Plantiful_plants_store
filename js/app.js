@@ -1,31 +1,14 @@
+import {data} from './data.js';
+
 // show loader when loading...
 window.addEventListener('load', () => document.querySelector('.loader').classList.add('hideLoader'));
 
-const CreatePlants = (() => {
-  const data = [
-    { id: 1, size: 'small', sizeDescription: 'Small 6"-10" tall', name: 'anthurium superbum',
-      img: 'img/small-1.jpg', price: '23', best: true, featured: false, description: 'Best selling plant from our store. Grab it before it`s gone!'},
-    { id: 2, size: 'small', sizeDescription: 'Small 6"-10" tall', name: 'snake plant', img: 'img/small-2.jpg', price: '25', best: false, featured: true, description: 'Our staff`s pick. A wonderful addition to' },
-    { id: 3, size: 'small', sizeDescription: 'Small 6"-10" tall', name: 'snake plant', img: 'img/small-2.jpg', price: '25', best: false, featured: true, description: 'Our staff`s pick. A wonderful addition to' },
-    { id: 4, size: 'small', sizeDescription: 'Small 6"-10" tall', name: 'pink princess', img: 'img/small-3.jpg', price: '20', best: false, featured: false, description: 'Pink pincess is lorem ipsum blah blooo' },
-    { id: 5, size: 'small', sizeDescription: 'Small 6"-10" tall', name: 'zanzibar gem', img: 'img/small-4.jpg', price: '15', best: false, featured: false, description: 'You can`t go wrong with carefree plants' },
-    { id: 6, size: 'small', sizeDescription: 'Small 6"-10" tall', name: 'lorem ipsum', img: 'img/small-5.jpg', price: '20', best: true, featured: false, description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates.' },
-    // medium
-    { id: 7, size: 'medium', sizeDescription: 'Medium 9"-15" tall', name: 'purple rain', img: 'img/medium-1.jpg', price: '37', best: false, featured: true, description: 'Lorem ipsum dolor sit amet consectetur' },
-    { id: 8, size: 'medium', sizeDescription: 'Medium 9"-15" tall', name: 'mammillaria', img: 'img/medium-2.jpg', price: '45', best: true, featured: false, description: 'Best selling plant from our store. Grab it before it`s gone!' },
-    { id: 9, size: 'medium', sizeDescription: 'Medium 9"-15" tall', name: 'coronavirus', img: 'img/medium-3.jpg', price: '40', best: false, featured: false, description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat, volupta' },
-    // large
-    { id: 10, size: 'large', sizeDescription: 'Large 15"-30" tall', name: 'cereus peruvianus', img: 'img/large-1.jpg', price: '80', best: false, featured: true, description: 'Lorem ipsum dolor sit amet elit. Itaque' },
-    { id: 11, size: 'large', sizeDescription: 'Large 15"-30" tall', name: 'banana tree', img: 'img/large-2.jpg', price: '100', best: false, featured: true, description: 'You can`t go wrong with carefree plants' },
-    { id: 12, size: 'large', sizeDescription: 'Large 15"-30" tall', name: 'euphorbia trigona', img: 'img/large-3.jpg', price: '85', best: true, featured: false, description: 'ipsum dolor, sit amet consectetur adipisicing elit.' },
-    { id: 13, size: 'large', sizeDescription: 'Large 15"-30" tall', name: 'pineapple plant', img: 'img/large-4.jpg', price: '130', best: false, featured: false, description: 'You can`t go wrong with carefree plants' }
-  ];
-
+const CreatePlants = ((plantData) => {
   const plants = [];
 
   // template
   class Plant {
-    constructor(id, size, sizeDescription, name, img, price, best, featured, description) {
+    constructor(id, size, sizeDescription, name, img, price, best, featured, description, light, care) {
       this.id = id;
       this.size = size;
       this.sizeDescription = sizeDescription;
@@ -35,24 +18,26 @@ const CreatePlants = (() => {
       this.best = best;
       this.featured = featured;
       this.description = description;
+      this.light=light;
+      this.care=care;
     }
   };
 
   // create plant function
-  function createPlant(id, size, sizeDescription, name, img, price, best, featured, description) {
-    const plant = new Plant(id, size, sizeDescription, name, img, price, best, featured, description);
+  function createPlant(id, size, sizeDescription, name, img, price, best, featured, description, light, care) {
+    const plant = new Plant(id, size, sizeDescription, name, img, price, best, featured, description, light,care);
     plants.push(plant);
   };
 
   // make plants
   function makePlants() {
-    data.forEach(datum => {
-      createPlant(datum.id, datum.size, datum.sizeDescription, datum.name, datum.img, datum.price, datum.best, datum.featured, datum.description);
+    plantData.forEach(datum => {
+      createPlant(datum.id, datum.size, datum.sizeDescription, datum.name, datum.img, datum.price, datum.best, datum.featured, datum.description, datum.light, datum.care);
     });
   };
 
   makePlants();
-  console.log(plants);
+
   // best sellers
   const bestSellers = plants.filter(plant => plant.best === true);
   const featuredPlants = plants.filter(plant => plant.featured === true);
@@ -61,8 +46,7 @@ const CreatePlants = (() => {
     bestSellers,
     featuredPlants
   };
-
-})();
+})(data);
 
 // index.html
 const DiplayFeaturedPlants = ((CreatePlants) => {
@@ -173,7 +157,7 @@ const DisplayPlants = ((CreatePlants) => {
       <div class="col-sm-6 col-lg-4 single-plant ${plant.size}">
         <div class="card plant-card">
           <div class="plant-img-div">
-           <a href="product.html" id="singlePlantLink">
+           <a href="product.html?id=${plant.id}" id="singlePlantLink">
              <img src="${plant.img}" alt="plant" class="card-img-top plant-img">
            </a>
             <button class="btn btn-outline-dark add-btn" id="open">add to cart</button>
@@ -184,7 +168,7 @@ const DisplayPlants = ((CreatePlants) => {
               <!-- first flex child -->
               <div class="plant-text justify-content-start">
                 <h6 class="text-muted">${plant.sizeDescription}</h6>
-                <a href="product.html" class="text-dark">
+                <a href="product.html?id=${plant.id}" class="text-dark">
                  <h5 class="text-capitalize plant-name">${plant.name}</h5>
                 </a>
               </div>
@@ -333,9 +317,6 @@ const showTotals = () => {
     message.textContent = `You are $${100 - finalMoney} away from FREE SHIPPING`;
 };
 
-const continueShopping = () => {
-
-}
 
 
 
@@ -352,85 +333,6 @@ const continueShopping = () => {
 
 
 
-
-
-// product.html
-// const DisplaySinglePlant = ((CreatePlants) => {
-//   const plants = CreatePlants.plants;
-
-//   const singlePlant = document.querySelector('#singlePlant');
-//   const singlePlantLink = document.querySelectorAll('#singlePlantLink');
-
-
-//   document.addEventListener('DOMContentLoaded', () => {
-
-//     singlePlant.innerHTML = '';
-//     let data = '';
-
-//     singlePlantLink.forEach(single => {
-//       const fullPath = single.src;
-//       const position = fullPath.indexOf('img');
-//       const partialPath = fullPath.slice(position);
-
-//       plants.forEach(plant => {
-//         if (plant.img === partialPath) {
-//           data += `
-//           <div class="col-md-5">
-//             <div class="product-img">
-//               <img src="${plant.img}" class="img-fluid mb-3" alt="plant product">
-//               <img src="img/large-1-2.jpg" class="img-fluid mb-3" alt="plant product">
-//             </div>
-//           </div>
-//           <div class="col-md-6 col-sm-9 col-11 mx-auto">
-//             <div class="product-content mb-5">
-//               <h1 class="text-capitalize mb-3">banana plant</h1>
-//               <h4>$<span>125</span></h4>
-//               <h5>Get a taste of the tropical forest</h5>
-//             </div>
-//             <!-- first line -->
-//             <div class="product-description d-flex mb-4">
-//               <i class="fas fa-ruler-vertical mr-4 align-self-center fa-2x fa-fw ruler"></i>
-//               <div class="">
-//                 <p class="text-muted text-uppercase p-0 m-0">pot & plant combined size</p>
-//                 <p class="m-0">Large - 20"-30"H x 11"W</p>
-//               </div>
-//             </div>
-//             <!-- end of first line -->
-//             <!-- second line -->
-//             <div class="product-description d-flex mb-4">
-//               <i class="fas fa-sun mr-4 align-self-center fa-fw fa-2x p-1 sun"></i>
-//               <div class="">
-//                 <p class="text-muted text-uppercase p-0 m-0">light</p>
-//                 <p class="m-0">This plant can manage in a bright locations as well as a few metres away from a window.</p>
-//               </div>
-//             </div>
-//             <!-- end of second line -->
-//             <!-- third line -->
-//             <div class="product-description d-flex">
-//               <i class="fas fa-hand-holding-heart fa-2x mr-4 align-self-center fa-fw p-1 holding-heart"></i>
-//               <div class="">
-//                 <p class="text-muted text-uppercase p-0 m-0">care</p>
-//                 <p class="m-0">Carefree-Water sparingly, only a few times a month.</p>
-//               </div>
-//             </div>
-//             <!-- end of third line -->
-//             <button class="product-btn w-100 my-5 mx-auto btn btn-lg btn-dark text-capitalize">Add to cart</button>
-//             <div class="shipping-guide d-flex justify-content-between" data-toggle="modal"
-//             data-target="#shipping-guideScrollable">
-//               <p class="text-capitalize mt-2 my-2 align-self-center">shipping guide</p>
-//               <i class="fas fa-plus align-self-center"></i>
-//           </div>
-//         </div>
-//           `
-//         }
-//         return;
-//       });
-//     });
-
-
-//     singlePlant.innerHTML = data;
-//   });
-// })(CreatePlants);
 
 
 
