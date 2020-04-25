@@ -51,30 +51,27 @@
     <!-- nav -->
     <div class="collapse navbar-collapse mr-4" id="nav">
       <ul class="navbar-nav mr-auto">
+        <li class="nav-item mx-2">
+          <a href="index.html" class="nav-link">home</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a href="about.html" class="nav-link">about</a>
+        </li>
         <li class="nav-item active mx-2">
-          <a href="index.html" class="nav-link text-uppercase">home</a>
+          <a href="store.html" class="nav-link">store</a>
         </li>
         <li class="nav-item mx-2">
-          <a href="#about" class="nav-link text-uppercase">about</a>
-        </li>
-        <li class="nav-item mx-2">
-          <a href="store.html" class="nav-link text-uppercase">store</a>
-        </li>
-        <li class="nav-item mx-2">
-          <a href="#contact" class="nav-link text-uppercase">contact</a>
+          <a href="contact.html" class="nav-link">contact</a>
         </li>
       </ul>
-      <div class="nav-icons">
-        <a href="#" class="nav-icon">
-          <i class="fab fa-instagram fa-fw"></i>
-        </a>
-        <a href="#" class="nav-icon">
-          <i class="fab fa-facebook fa-fw"></i>
-        </a>
-        <a href="#" class="nav-icon">
-          <i class="fab fa-twitter fa-fw"></i>
-        </a>
-      </div>
+      <ul class="navbar-nav signin-nav">
+        <li class="nav-item">
+          <a href="#" class="nav-link">sign in</a>
+        </li>
+        <li class="nav-item" id="last-nav">
+          <a href="" class="nav-link">cart(<span class="cart-item-number">0</span>)</a>
+        </li>
+      </ul>
     </div>
   </nav>
   <!-- end of nav section -->
@@ -89,7 +86,7 @@
           <p class="header-p w-75 mb-5 text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis in
             labore quidem, ducimus perferendis accusamus error, id suscipit deserunt officia quod quo ex magni
             praesentium perspiciatis. Asperiores sapiente dignissimos quis.</p>
-          <button class="header-btn btn btn-outline-dark btn-lg text-uppercase curved-btn">shop now</button>
+          <a href="store.html" class="header-btn btn btn-outline-dark btn-lg text-uppercase curved-btn">shop now</a>
         </div>
       </div>
     </div>
@@ -152,7 +149,9 @@
         </div>
         <!-- end of single card -->
 
-        <a href="" class="my-5 mx-auto btn btn-lg btn-outline-dark text-capitalize collections-btn curved-btn">Explore more categories</a>
+        <a href="store.html"
+          class="my-5 mx-auto btn btn-lg btn-outline-dark text-capitalize collections-btn curved-btn">Explore
+          more categories</a>
 
       </div>
     </div>
@@ -212,30 +211,7 @@
         </div>
       </div>
       <!-- end of section title -->
-      <div class="row" id="featured-container">
-        <!-- single item -->
-        <div class="col-lg-3 col-md-6">
-          <div class="card px-2 pt-4 mb-5 featured-card">
-            <div>
-              <img src="./img/plant-5.jpg" class="featured-img card-img-top" alt="">
-              <div class="featured-icons text-center my-4">
-                <button class="btn featured-btn">
-                  <i class="fas fa-shopping-cart fa-lg fa-fw d-flex justify-content-center align-items-center py-2"></i>
-                </button>
-                <button class="btn featured-btn">
-                  <i class="far fa-heart fa-lg fa-fw d-flex justify-content-center align-items-center py-2"></i>
-                </button>
-              </div>
-            </div>
-            <div class="featured-text px-2 text-center my-auto">
-              <h5 class="text-capitalize font-weight-bold featured-title">wandering jew</h5>
-              <p class="card-text">Best selling plant from our store. Grab it before it's gone!</p>
-              <p class="featured-price font-weight-bold">$<span>100</span></p>
-            </div>
-          </div>
-        </div>
-        <!-- end of single item -->
-      </div>
+      <div class="row" id="featured-container"></div>
     </div>
   </section>
   <!-- end of featured section -->
@@ -253,7 +229,7 @@
             <p class="mb-4">A plant can make a big difference lorem ipsum dolor sit amet consectetur adipisicing elit.
               Alias ducimus
               ut quasi in adipisci magni nemo eius neque quis soluta!</p>
-            <button class="btn banner-btn text-white btn-warning curved-btn">Shop office plants</button>
+            <a href="store.html" class="btn banner-btn text-white btn-warning curved-btn">Shop office plants</a>
           </div>
         </div>
         <!-- image -->
@@ -290,6 +266,8 @@
   </section>
   <!-- end of banner care section -->
 
+ 
+
   <!-- footer -->
   <footer class="footer py-5" id="footer">
     <div class="container">
@@ -308,16 +286,16 @@
             <div class="horizontal-line"></div>
             <div class="text-capitalize d-flex justify-content-between w-75">
               <ul class="nav flex-column">
-                <li><a class="text-dark" href="">home</a></li>
-                <li><a class="text-dark" href="">about</a></li>
-                <li><a class="text-dark" href="">store</a></li>
-                <li><a class="text-dark" href="">contact</a></li>
+                <li><a class="text-dark" href="index.html">home</a></li>
+                <li><a class="text-dark" href="#about">about</a></li>
+                <li><a class="text-dark" href="store.html">store</a></li>
+                <li><a class="text-dark" href="contact.html">contact</a></li>
               </ul>
               <ul class="nav flex-column">
-                <li><a class="text-dark" href="">FAQ</a></li>
-                <li><a class="text-dark" href="">Instagram</a></li>
-                <li><a class="text-dark" href="">Facebook</a></li>
-                <li><a class="text-dark" href="">Plant Care 101</a></li>
+                <li><a class="text-dark" href="faq.html">FAQ</a></li>
+                <li><a class="text-dark" href="https://instagram.com">Instagram</a></li>
+                <li><a class="text-dark" href="https://facebook.com">Facebook</a></li>
+                <li><a class="text-dark" href="plantcare.html">Plant Care 101</a></li>
               </ul>
             </div>
           </div>
@@ -333,7 +311,7 @@
   <!-- end of footer -->
 
   <!-- Optional JavaScript -->
-  <script src="js/app.js"></script>
+  <script type="module" src="js/app.js"></script>
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -347,4 +325,3 @@
 </body>
 
 </html>
-

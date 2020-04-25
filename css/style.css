@@ -7,6 +7,10 @@
   --light-color: #ECE7DF;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Baloo Bhaina 2', cursive;
   margin: 0;
@@ -123,8 +127,9 @@ h1 {
 
 /* navbar */
 .nav-link {
-  color: var(--dark-color);
+  color: #fff;
   transition: all 0.3s ease;
+  font-size:1.2rem;
 }
 
 .nav-link:hover {
@@ -132,9 +137,22 @@ h1 {
   color: var(--olive);
 }
 
+#navbar{
+  background-color: var(--darkGreen);
+}
+
+.fa-bars {
+  color: #fff;
+}
+
 @media screen and (max-width: 768px) {
-  .nav-icons {
-    margin-top: 0.5rem;
+   .navbar-toggler:focus {
+    border: none;
+    outline: none;
+  }
+  .signin-nav{
+    margin-left: 0.5rem;
+    font-weight:bold;
   }
 }
 
@@ -300,10 +318,21 @@ h1 {
   font-size: 1.5rem;
 }
 
+.featured-img-div {
+  overflow: hidden;
+}
+
 .featured-img {
   border-top-left-radius: 3rem;
   border-top-right-radius: 0;
+  height: 100%;
+  transition: transform 0.5s ease;
 }
+
+.featured-img:hover {
+  transform: scale(1.2);
+}
+
 
 @media screen and (max-width: 768px) {
   .featured-card {
@@ -416,6 +445,19 @@ h1 {
 .plant-name:hover {
   text-decoration: underline;
   color: var(--orange);
+}
+
+@media screen and (max-width: 768px) {
+  .filter{
+    margin-left:1rem;
+    margin-bottom: 1.5rem;
+  }
+  .filter ul{
+    flex-direction:row!important;
+  }
+  .filter-btn{
+    margin-right: 1.5rem;
+  }
 }
 
 .plant-value {
@@ -545,14 +587,15 @@ h1 {
   z-index: 98;
   animation-name: cartopen;
   animation-duration: 0.5s;
-  overflow:auto;
+  overflow: auto;
 }
 
-@keyframes cartopen{
-  from{
+@keyframes cartopen {
+  from {
     transform: translateX(350px);
   }
-  to{
+
+  to {
     transform: translateX(0);
   }
 }
@@ -576,9 +619,13 @@ h1 {
   color: #000;
 }
 
-.cart-item{
+.cart-item {
   border-bottom: 1px solid #eeeeee;
-  width:90%;
-  margin:1rem auto;
+  width: 90%;
+  margin: 1rem auto;
+}
 
+/* contact */
+.hours p, .hours span{
+  font-size: 1.2rem;
 }

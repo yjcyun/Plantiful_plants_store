@@ -1,12 +1,12 @@
 import { data } from './data.js';
+import { showCartModal, showTotals } from './cartModal.js';
 
 // show loader when loading...
 window.addEventListener('load', () => document.querySelector('.loader').classList.add('hideLoader'));
 
-
+// get query strings 
 const urlParams = new URLSearchParams(window.location.search);
 const urlId = urlParams.get('id');
-
 
 const DisplayProduct = ((plantData) => {
   const singlePlant = document.querySelector('#singlePlant');
@@ -15,7 +15,7 @@ const DisplayProduct = ((plantData) => {
   plantData.forEach(plant => {
 
     if (plant.id == urlId) {
-      singlePlant.innerHTML=`
+      singlePlant.innerHTML = `
       <div class="col-md-5">
       <div class="product-img">
         <img src="${plant.img}" class="img-fluid mb-3" alt="plant product">
@@ -54,7 +54,7 @@ const DisplayProduct = ((plantData) => {
         </div>
       </div>
       <!-- end of third line -->
-      <button class="product-btn w-100 my-5 mx-auto btn btn-lg btn-dark text-capitalize">Add to cart</button>
+      <button class="product-btn w-100 my-5 mx-auto btn btn-lg btn-dark text-capitalize" id="open">Add to cart</button>
       <div class="shipping-guide d-flex justify-content-between" data-toggle="modal"
         data-target="#shipping-guideScrollable">
         <p class="text-capitalize mt-2 my-2 align-self-center">shipping guide</p>
@@ -63,8 +63,49 @@ const DisplayProduct = ((plantData) => {
     </div>
       `
     }
+  });
 
-  })
-
+  showCartModal();
+  addToCart();
 
 })(data);
+
+function addToCart() {
+  const open = document.querySelector('#open');
+
+  open.addEventListener('click', e => {
+    //img
+    let fullPath = e.target.parentElement.parentElement.children[0].children[0].children[0].src;
+    let position = fullPath.indexOf('img');
+    let partialPath = fullPath.slice(position);
+
+    const item = {};
+    item.img = partialPath;
+
+    //name
+    let name = e.target.parentElement.parentElement.children[1].children[0].children[0].textContent;
+    item.name = name;
+
+    //price
+    let price = e.target.parentElement.parentElement.children[1].children[0].children[1].children[0].textContent;
+    item.price = +price;
+
+    const cartItem = document.createElement('div');
+    cartItem.className = 'cart-item d-flex pb-3';
+
+    cartItem.innerHTML = `
+        <img src="${item.img}" class="img-fluid mx-3" alt="plant" style="width:70px;height:70px">
+        <div class="item-text ">
+          <p class="text-uppercase font-weight-bold  m-0 p-0" id="cart-item-title">${item.name}</p>
+          <p class="font-weight-bold m-0 p-0">$<span id="cart-item-price">${item.price}</span></p>
+          <p class="m-0 p-0">qty: <span id="cart-item-qty">1</span>
+          </p>
+        `;
+
+    const cartModal = document.querySelector('.cart-modal');
+    const total = document.querySelector('#cart-subtotal-container');
+
+    cartModal.insertBefore(cartItem, total);
+    showTotals();
+  });
+}

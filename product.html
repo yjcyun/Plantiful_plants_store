@@ -61,15 +61,15 @@
           <a href="store.html" class="nav-link">store</a>
         </li>
         <li class="nav-item mx-2">
-          <a href="#contact" class="nav-link">contact</a>
+          <a href="contact.html" class="nav-link">contact</a>
         </li>
       </ul>
-      <ul class="navbar-nav">
+      <ul class="navbar-nav signin-nav">
         <li class="nav-item">
           <a href="" class="nav-link">sign in</a>
         </li>
         <li class="nav-item">
-          <a href="" class="nav-link">cart(<span>0</span>)</a>
+          <a href="" class="nav-link">cart(<span class="cart-item-number">0</span>)</a>
         </li>
       </ul>
     </div>
@@ -83,7 +83,6 @@
     </div>
   </section>
   <!-- end of single product section -->
-
 
   <!-- shipping modal -->
   <div class="modal fade" id="shipping-guideScrollable" tabindex="-1" role="dialog" aria-labelledby="shipping-label"
@@ -169,6 +168,56 @@
   </a>
   <!-- end of back to store btn -->
 
+  <!-- cart section -->
+  <div class="cart cart-container" id="cart">
+    <!-- cart modal-->
+    <div class="cart-modal">
+      <!-- message -->
+      <div>
+        <div class="d-flex justify-content-center cart-notification">
+          <p class="font-weight-bold text-uppercase py-3 my-auto cart-added">
+            <i class="fas fa-check-circle text-success"></i>
+            Just added to your cart
+          </p>
+          <i class="fas fa-times my-auto cart-close btn" id="cart-close"></i>
+        </div>
+        <p class="px-4 my-2" id="message">message</p>
+      </div>
+      <!-- end of message -->
+
+      <!-- cart item -->
+      <!-- <div class="cart-item d-flex" id="cart-item">
+        <img src="img/large-3.jpg" class="img-fluid mx-3" alt="plant" style="width:70px;height:70px">
+        <div class="item-text ">
+          <p class="text-uppercase font-weight-bold  m-0 p-0" id="cart-item-title">banana plant</p>
+          <p class="font-weight-bold m-0 p-0">$<span id="cart-item-price">230</span></p>
+          <p class="m-0 p-0">qty: <span id="cart-item-qty">1</span>
+          </p>
+        </div>
+      </div> -->
+      <!-- end of cart item -->
+
+      <!-- subtotal -->
+      <div class=" px-3 mt-3 d-flex justify-content-between" id="cart-subtotal-container">
+        <p class="text-uppercase">subtotal ( <span class="cart-item-number">2</span> item<span id="plural">s</span> )
+        </p>
+        <p class="font-weight-bold">$<span id="cart-item-total">10.99</span></p>
+      </div>
+      <!-- end of subtotal -->
+
+      <!-- cart buttons -->
+      <div class="cart-buttons-container my-3 px-3">
+        <a href="#" id="clear-cart" class="w-100 my-2 btn btn-dark text-uppercase">view cart</a>
+        <btn class="w-100 btn btn-outline-dark continue-btn text-uppercase">continue shopping</btn>
+      </div>
+      <!--end of  cart buttons -->
+    </div>
+    <!--end of  cart modal -->
+
+    <!--  -->
+  </div>
+  <!-- end of cart section -->
+
   <!-- footer -->
   <footer class="footer py-5" id="footer">
     <div class="container">
@@ -187,22 +236,22 @@
             <div class="horizontal-line"></div>
             <div class="text-capitalize d-flex justify-content-between w-75">
               <ul class="nav flex-column">
-                <li><a class="text-dark" href="">home</a></li>
-                <li><a class="text-dark" href="">about</a></li>
-                <li><a class="text-dark" href="">store</a></li>
-                <li><a class="text-dark" href="">contact</a></li>
+                <li><a class="text-dark" href="index.html">home</a></li>
+                <li><a class="text-dark" href="about.html">about</a></li>
+                <li><a class="text-dark" href="store.html">store</a></li>
+                <li><a class="text-dark" href="contact.html">contact</a></li>
               </ul>
               <ul class="nav flex-column">
-                <li><a class="text-dark" href="">FAQ</a></li>
-                <li><a class="text-dark" href="">Instagram</a></li>
-                <li><a class="text-dark" href="">Facebook</a></li>
-                <li><a class="text-dark" href="">Plant Care 101</a></li>
+                <li><a class="text-dark" href="faq.html">FAQ</a></li>
+                <li><a class="text-dark" href="https://instagram.com">Instagram</a></li>
+                <li><a class="text-dark" href="https://facebook.com">Facebook</a></li>
+                <li><a class="text-dark" href="plantcare.html">Plant Care 101</a></li>
               </ul>
             </div>
           </div>
         </div>
-        <div class="col-lg-7 col-md-6">
-          <div class="footer-img">
+        <div class="col-lg-7 col-md-6 mt-2">
+          <div class="footer-img justify-content-center align-items-center">
             <img src="img/footer.jpg" class="img-fluid" alt="three plants">
           </div>
         </div>

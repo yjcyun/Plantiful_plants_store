@@ -24,18 +24,6 @@
 </head>
 
 <body>
-  <!-- loader section -->
-  <div class="loader d-flex justify-content-center align-items-center">
-    <div class="banana d">
-      <svg class="logo" width="42px" height="27px" viewBox="0 0 42 27" version="1.1" xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink">
-        <path
-          d="M27.2861584,12.161723 C21.878637,13.1079515 17.6922039,20.3685835 15.4747077,25.1841521 C13.3245071,4.20375459 42,0 42,0 C42,0 37.9221081,28.5085611 15.7102421,26.9373612 L27.2861584,12.161723 Z M9.68859135,25.3642259 L4.07597867,14.6643189 C3.16588397,18.4076368 6.95830724,23.2066496 9.14123129,25.5907604 C-4.2897248,21.7286768 1.04594976,3.21222934 1.04594976,3.21222934 C1.04594976,3.21222934 15.98106,12.9521138 9.68859135,25.3642259 Z"
-          id="" fill="#00ba69"></path>
-      </svg>
-    </div>
-  </div>
-  <!-- end of loader section -->
 
   <!-- nav section -->
   <nav class="navbar navbar-expand-md py-0" id="navbar">
@@ -55,7 +43,7 @@
           <a href="index.html" class="nav-link">home</a>
         </li>
         <li class="nav-item mx-2">
-          <a href="about.html" class="nav-link">about</a>
+          <a href="#" class="nav-link">about</a>
         </li>
         <li class="nav-item active mx-2">
           <a href="store.html" class="nav-link">store</a>
@@ -64,9 +52,9 @@
           <a href="contact.html" class="nav-link">contact</a>
         </li>
       </ul>
-      <ul class="navbar-nav signin-nav">
+      <ul class="navbar-nav">
         <li class="nav-item">
-          <a href="" class="nav-link">sign in</a>
+          <a href="#" class="nav-link">sign in</a>
         </li>
         <li class="nav-item" id="last-nav">
           <a href="" class="nav-link">cart(<span class="cart-item-number">0</span>)</a>
@@ -76,103 +64,65 @@
   </nav>
   <!-- end of nav section -->
 
-  <!-- cart section -->
-  <div class="cart cart-container" id="cart">
-    <!-- cart modal-->
-    <div class="cart-modal">
-      <!-- message -->
-      <div>
-        <div class="d-flex justify-content-center cart-notification">
-          <p class="font-weight-bold text-uppercase py-3 my-auto cart-added">
-            <i class="fas fa-check-circle text-success"></i>
-            Just added to your cart
-          </p>
-          <i class="fas fa-times my-auto cart-close btn" id="cart-close"></i>
-        </div>
-        <p class="px-4 my-2" id="message">message</p>
-      </div>
-      <!-- end of message -->
-
-      <!-- subtotal -->
-      <div class=" px-3 mt-3 d-flex justify-content-between" id="cart-subtotal-container">
-        <p class="text-uppercase">subtotal ( <span class="cart-item-number">2</span> item<span id="plural">s</span> )
-        </p>
-        <p class="font-weight-bold">$<span id="cart-item-total">10.99</span></p>
-      </div>
-      <!-- end of subtotal -->
-
-      <!-- cart buttons -->
-      <div class="cart-buttons-container my-3 px-3">
-        <a href="#" id="clear-cart" class="w-100 my-2 btn btn-dark text-uppercase">view cart</a>
-        <btn class="w-100 btn btn-outline-dark continue-btn text-uppercase">continue shopping</btn>
-      </div>
-      <!--end of  cart buttons -->
-    </div>
-    <!--end of  cart modal -->
-  </div>
-  <!-- end of cart section -->
-
-  <!-- store list section -->
-  <section class="store pt-5" id="store">
+  <!-- contact section -->
+  <section id="contact" class="contact py-5">
     <div class="container">
-      <div class="row">
-        <div class="col-md-2 filter " id="filter">
-          <h4 class="">Categories</h4>
-          <ul class="nav d-flex flex-column text-capitalize">
-            <li class="filter-btn my-1" data-filter="all">all plants</li>
-            <li class="filter-btn my-1" data-filter="small">small</li>
-            <li class="filter-btn my-1" data-filter="medium">medium</li>
-            <li class="filter-btn my-1" data-filter="large">large</li>
-          </ul>
+      <!-- section title -->
+      <div class="row mb-5">
+        <div class="col text-capitalize text-center">
+          <h1 class="font-weight-bold">Contact & Find Us</h1>
         </div>
-        <div class="col-md-10 item-list" id="item-list">
-          <div class="container">
-            <h5 class="text-uppercase filtered-plants">all plants</h5>
-            <div class="row" id="store-container">
+      </div>
+      <!-- end of section title -->
+      <div class="row">
+        <!-- form -->
+        <div class="col-md-6">
+          <form>
+            <div class="form-group">
+              <label for="name">Name *</label>
+              <input type="text" class="form-control" id="name-input" required>
             </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" class="form-control" id="email-input" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="text" class="form-control" id="phone-input">
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea class="form-control" id="message" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-dark text-uppercase w-50">send</button>
+          </form>
+        </div>
+
+        <!-- map -->
+        <div class="col-md-6 mt-4">
+          <div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887.2691841228043!2d-79.3892758845403!3d43.6425675611362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDM4JzMzLjIiTiA3OcKwMjMnMTMuNSJX!5e0!3m2!1sen!2sca!4v1587839661575!5m2!1sen!2sca" width="100%"  height="400px" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+              tabindex="0"></iframe>
           </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col hours my-5">
+          <h2>Store Hours</h2>
+          <p><i class="fas fa-exclamation-circle text-danger"></i> Our store is closed due to COVID-19 outbreak but we
+            are open for road-side pickup and delivery</p>
+          <span>Monday-Friday: 10am - 6pm</span><br>
+          <span>Saturday-Sunday: 12pm - 4pm</span><br>
+          <span><i class="fas fa-phone-volume"></i>416-121-1234</span>
         </div>
       </div>
     </div>
   </section>
-  <!-- store list section -->
+  <!-- end of contact section -->
 
-  <!-- favourite section -->
-  <section class="favourite my-5" id="favourite">
-    <div class="container">
-      <div class="row">
-        <div class="horizontal-line"></div>
-        <h1 class="text-uppercase mx-auto my-4">our best sellers</h1>
-      </div>
 
-      <div class="row mx-auto my-auto" id="favourite-info">
-        <!-- single item -->
-        <div class="col-md-3 col-6">
-          <div class="card plant-card">
-            <div class="plant-img-div">
-              <img src="img/small-1.jpg" alt="plant">
-            </div>
-            <!-- card body -->
-            <div class="card-body px-0">
-              <div class="plant-info d-flex justify-content-between">
-                <!-- first flex child -->
-                <div class="plant-text justify-content-start">
-                  <h6 class="text-capitalize">anthurium superbum</h6>
-                </div>
-                <!-- second flex child -->
-                <div class="plant-value align-self-center">
-                  $<span class="plant-price">25</span>
-                </div>
-              </div>
-            </div>
-            <!-- end of card body -->
-          </div>
-        </div>
-        <!-- end of single item -->
-      </div>
-    </div>
-  </section>
-  <!-- end of favourite section -->
 
   <!-- footer -->
   <footer class="footer py-5" id="footer">
@@ -193,7 +143,7 @@
             <div class="text-capitalize d-flex justify-content-between w-75">
               <ul class="nav flex-column">
                 <li><a class="text-dark" href="index.html">home</a></li>
-                <li><a class="text-dark" href="about.html">about</a></li>
+                <li><a class="text-dark" href="#about">about</a></li>
                 <li><a class="text-dark" href="store.html">store</a></li>
                 <li><a class="text-dark" href="contact.html">contact</a></li>
               </ul>
@@ -217,8 +167,7 @@
   <!-- end of footer -->
 
   <!-- Optional JavaScript -->
-  <script type="module" src="js/app.js"></script>
-  
+  <script src="js/app.js"></script>
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

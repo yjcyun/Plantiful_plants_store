@@ -1,4 +1,5 @@
-import {data} from './data.js';
+import { data } from './data.js';
+import { showCartModal, showTotals } from './cartModal.js';
 
 // show loader when loading...
 window.addEventListener('load', () => document.querySelector('.loader').classList.add('hideLoader'));
@@ -18,14 +19,14 @@ const CreatePlants = ((plantData) => {
       this.best = best;
       this.featured = featured;
       this.description = description;
-      this.light=light;
-      this.care=care;
+      this.light = light;
+      this.care = care;
     }
   };
 
   // create plant function
   function createPlant(id, size, sizeDescription, name, img, price, best, featured, description, light, care) {
-    const plant = new Plant(id, size, sizeDescription, name, img, price, best, featured, description, light,care);
+    const plant = new Plant(id, size, sizeDescription, name, img, price, best, featured, description, light, care);
     plants.push(plant);
   };
 
@@ -62,22 +63,16 @@ const DiplayFeaturedPlants = ((CreatePlants) => {
       data += `
       <!-- single item -->
       <div class="col-lg-3 col-md-6">
-        <div class="card px-2 pt-4 mb-5 featured-card curved-border">
-          <div>
-            <img src="${plant.img}" class="featured-img card-img-top" alt="featured plant">
-            <div class="featured-icons text-center my-4">
-              <button class="btn featured-btn">
-                <i class="fas fa-shopping-cart fa-lg fa-fw d-flex justify-content-center align-items-center py-2"></i>
-              </button>
-              <button class="btn featured-btn">
-                <i class="far fa-heart fa-lg fa-fw d-flex justify-content-center align-items-center py-2"></i>
-              </button>
-            </div>
+        <div class="card px-2 pt-4 mb-3 featured-card curved-border">
+          <div class="featured-img-div">
+            <a href="product.html?id=${plant.id}" id="singlePlantLink">
+              <img src="${plant.img}" class="featured-img card-img-top" alt="featured plant">
+            </a>
           </div>
-          <div class="featured-text px-2 text-center my-auto">
+          <div class="featured-text px-2 text-center my-3">
             <h5 class="text-capitalize font-weight-bold featured-title">${plant.name}</h5>
             <p class="card-text">${plant.description}</p>
-            <p class="featured-price font-weight-bold">$<span>${plant.price}</span></p>
+            <p class="featured-price font-weight-bold mb-0">$<span>${plant.price}</span></p>
           </div>
         </div>
       </div>
@@ -105,20 +100,28 @@ const DisplayBestSellers = ((CreatePlants) => {
       <!-- single item -->
       <div class="col-md-3 col-6">
         <div class="card plant-card">
-          <img src="${best.img}" alt="plant" class="card-img-top plant-img">
+          <div class="plant-img-div">
+            <a href="product.html?id=${best.id}" id="singlePlantLink">
+              <img src="${best.img}" alt="plant" class="card-img-top plant-img">
+            </a>
+            <button class="btn btn-outline-dark add-btn" id="open">add to cart</button>
+          </div>
           <!-- card body -->
           <div class="card-body px-0">
-            <div class="plant-info d-flex justify-content-between">
-              <!-- first flex child -->
-              <div class="d-flex plant-text justify-content-start align-items-center">
-                <h6 class="text-capitalize">${best.name}</h6>
-              </div>
-              <!-- second flex child -->
-              <div class="plant-value align-self-center">
-                $<span class="plant-price">${best.price}</span>
-              </div>
+          <div class="plant-info d-flex justify-content-between">
+            <!-- first flex child -->
+            <div class="plant-text justify-content-start">
+              <h6 class="text-muted"></h6>
+              <a href="product.html?id=${best.id}" class="text-dark">
+               <h5 class="text-capitalize plant-name">${best.name}</h5>
+              </a>
+            </div>
+            <!-- second flex child -->
+            <div class="plant-value align-self-center">
+              $<span class="plant-price">${best.price}</span>
             </div>
           </div>
+        </div>
           <!-- end of card body -->
         </div>
       </div>
@@ -147,7 +150,6 @@ const DisplayPlants = ((CreatePlants) => {
   const store = document.getElementById('store-container');
 
   document.addEventListener('DOMContentLoaded', () => {
-
     store.innerHTML = '';
     let data = '';
 
@@ -213,31 +215,9 @@ const FilterPlants = (() => {
       filterTitle.textContent = value;
 
     });
+
   });
 })();
-
-const showCartModal = () => {
-  const close = document.getElementById('cart-close');
-  const open = document.querySelectorAll('#open');
-  const cartModal = document.getElementById('cart');
-  const continueBtn = document.querySelector('.continue-btn');
-
-  // show modal
-  open.forEach(btn => {
-    btn.addEventListener('click', () => {
-      cartModal.classList.add('show-cart-modal');
-    });
-  });
-
-  close.addEventListener('click', () => {
-    cartModal.classList.remove('show-cart-modal');
-  });
-  continueBtn.addEventListener('click', () => {
-    cartModal.classList.remove('show-cart-modal');
-  })
-
-  window.addEventListener('click', e => e.target === cartModal ? cartModal.classList.remove('show-cart-modal') : false);
-};
 
 const addToCart = () => {
   const open = document.querySelectorAll('#open');
@@ -261,6 +241,7 @@ const addToCart = () => {
         let price = e.target.parentElement.parentElement.children[1].children[0].children[1].children[0].textContent;
         item.price = +price;
 
+        
         const cartItem = document.createElement('div');
         cartItem.className = 'cart-item d-flex pb-3';
 
@@ -273,7 +254,6 @@ const addToCart = () => {
           </p>
         `;
 
-
         const cartModal = document.querySelector('.cart-modal');
         const total = document.querySelector('#cart-subtotal-container');
 
@@ -284,47 +264,6 @@ const addToCart = () => {
     });
   });
 };
-
-const showTotals = () => {
-  const total = [];
-
-  const items = document.querySelectorAll('#cart-item-price');
-  items.forEach(item => {
-    total.push(+item.textContent);
-  });
-
-  const totalMoney = total.reduce((acc, item) => {
-    acc += item;
-    return acc;
-  }, 0);
-
-  const finalMoney = totalMoney.toFixed(2);
-  //update total price
-  document.querySelector('#cart-item-total').textContent = finalMoney;
-  //update number of items
-  document.querySelectorAll('.cart-item-number').forEach(number => {
-    number.textContent = total.length;
-  });
-
-  // add s depending on the # of items added
-  const plural = document.querySelector('#plural');
-  total.length <= 1 ? plural.style.display = 'none' : plural.style.display = 'inline-block';
-
-  // show message depending on the total
-  const message = document.querySelector('#message');
-  finalMoney >= 100 ?
-    message.textContent = 'Your order qualifies for FREE SHIPPING' :
-    message.textContent = `You are $${100 - finalMoney} away from FREE SHIPPING`;
-};
-
-
-
-
-
-
-
-
-
 
 
 
