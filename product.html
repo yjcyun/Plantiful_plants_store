@@ -68,163 +68,108 @@
         <li class="nav-item">
           <a href="" class="nav-link">sign in</a>
         </li>
-        <li class="nav-item" id="last-nav">
-          <a href="" class="nav-link">cart(<span class="cart-item-number">0</span>)</a>
+        <li class="nav-item">
+          <a href="" class="nav-link">cart(<span>0</span>)</a>
         </li>
       </ul>
     </div>
   </nav>
   <!-- end of nav section -->
 
-  <!-- cart section -->
-  <div class="cart cart-container" id="cart">
-    <!-- cart modal-->
-    <div class="cart-modal">
-      <!-- message -->
-      <div>
-        <div class="d-flex justify-content-center cart-notification">
-          <p class="font-weight-bold text-uppercase py-3 my-auto cart-added">
-            <i class="fas fa-check-circle text-success"></i>
-            Just added to your cart
-          </p>
-          <i class="fas fa-times my-auto cart-close btn" id="cart-close"></i>
-        </div>
-        <p class="px-4 my-2" id="message">message</p>
-      </div>
-      <!-- end of message -->
-
-      <!-- cart item -->
-      <!-- <div class="cart-item d-flex" id="cart-item">
-        <img src="img/large-3.jpg" class="img-fluid mx-3" alt="plant" style="width:70px;height:70px">
-        <div class="item-text ">
-          <p class="text-uppercase font-weight-bold  m-0 p-0" id="cart-item-title">banana plant</p>
-          <p class="font-weight-bold m-0 p-0">$<span id="cart-item-price">230</span></p>
-          <p class="m-0 p-0">qty: <span id="cart-item-qty">1</span>
-          </p>
-        </div>
-      </div> -->
-      <!-- end of cart item -->
-
-      <!-- subtotal -->
-      <div class=" px-3 mt-3 d-flex justify-content-between" id="cart-subtotal-container">
-          <p class="text-uppercase">subtotal ( <span class="cart-item-number">2</span> item<span id="plural">s</span> )</p>
-          <p class="font-weight-bold">$<span id="cart-item-total">10.99</span></p>
-      </div>
-      <!-- end of subtotal -->
-
-      <!-- cart buttons -->
-      <div class="cart-buttons-container my-3 px-3">
-        <a href="#" id="clear-cart" class="w-100 my-2 btn btn-dark text-uppercase">view cart</a>
-        <btn class="w-100 btn btn-outline-dark continue-btn text-uppercase">continue shopping</btn>
-      </div>
-      <!--end of  cart buttons -->
-    </div>
-    <!--end of  cart modal -->
-
-    <!--  -->
-  </div>
-  <!-- end of cart section -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- store list section -->
-  <section class="store pt-5" id="store">
+  <!-- single product section -->
+  <section class="singlePlant mt-5">
     <div class="container">
-      <div class="row">
-        <div class="col-md-2 filter " id="filter">
-          <h4 class="">Categories</h4>
-          <ul class="nav d-flex flex-column text-capitalize">
-            <li class="filter-btn my-1" data-filter="all">all plants</li>
-            <li class="filter-btn my-1" data-filter="small">small</li>
-            <li class="filter-btn my-1" data-filter="medium">medium</li>
-            <li class="filter-btn my-1" data-filter="large">large</li>
-          </ul>
+      <div class="row" id="singlePlant">
+        <div class="col-md-5">
+          <div class="product-img">
+            <img src="img/large-1.jpg" class="img-fluid mb-3" alt="plant product">
+            <img src="img/large-1-2.jpg" class="img-fluid mb-3" alt="plant product">
+          </div>
         </div>
-        <div class="col-md-10 item-list" id="item-list">
-          <div class="container">
-            <h5 class="text-uppercase filtered-plants">all plants</h5>
-            <div class="row" id="store-container">
-              <!-- single item -->
-              <div class="col-sm-6 col-lg-4">
-                <div class="card plant-card">
-                  <div class="plant-img-div">
-                    <a href="product.html">
-                      <img src="img/small-1.jpg" alt="plant" class="card-img-top plant-img" id="singlePlantLink">
-                    </a>
-                    <button class="btn btn-outline-dark add-btn">add to cart</button>
-
-                  </div>
-
-                  <!-- card body -->
-                  <div class="card-body px-0">
-                    <div class="plant-info d-flex justify-content-between">
-                      <!-- first flex child -->
-                      <div class="plant-text justify-content-start">
-                        <h6 class="text-muted">Small 6"-10" tall</h6>
-                        <a href="product.html" class="text-dark">
-                          <h5 class="text-capitalize plant-name">anthurium
-                            superbum</h5>
-                        </a>
-                      </div>
-                      <!-- second flex child -->
-                      <div class="plant-value align-self-center">
-                        $<span class="plant-price">25</span>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- end of card body -->
-                </div>
-              </div>
-              <!-- end of single item -->
-              <!-- single item -->
-              <div class="col-sm-6 col-lg-4">
-                <div class="card plant-card">
-                  <div class="plant-img-div">
-                    <a href="product.html">
-                      <img src="img/small-2.jpg" alt="plant" class="card-img-top plant-img" id="singlePlantLink">
-                    </a>
-                    <button class="btn btn-outline-dark add-btn">add to cart</button>
-
-                  </div>
-
-                  <!-- card body -->
-                  <div class="card-body px-0">
-                    <div class="plant-info d-flex justify-content-between">
-                      <!-- first flex child -->
-                      <div class="plant-text justify-content-start">
-                        <h6 class="text-muted">Small 6"-10" tall</h6>
-                        <a href="product.html" class="text-dark">
-                          <h5 class="text-capitalize plant-name">anthurium
-                            superbum</h5>
-                        </a>
-                      </div>
-                      <!-- second flex child -->
-                      <div class="plant-value align-self-center">
-                        $<span class="plant-price">25</span>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- end of card body -->
-                </div>
-              </div>
-              <!-- end of single item -->
+        <div class="col-md-6 col-sm-9 col-11 mx-auto">
+          <div class="product-content mb-5">
+            <h1 class="text-capitalize mb-3">banana plant</h1>
+            <h4>$<span>125</span></h4>
+            <h5>Get a taste of the tropical forest</h5>
+          </div>
+          <!-- first line -->
+          <div class="product-description d-flex mb-4">
+            <i class="fas fa-ruler-vertical mr-4 align-self-center fa-2x fa-fw ruler"></i>
+            <div class="">
+              <p class="text-muted text-uppercase p-0 m-0">pot & plant combined size</p>
+              <p class="m-0">Large - 20"-30"H x 11"W</p>
             </div>
+          </div>
+          <!-- end of first line -->
+          <!-- second line -->
+          <div class="product-description d-flex mb-4">
+            <i class="fas fa-sun mr-4 align-self-center fa-fw fa-2x p-1 sun"></i>
+            <div class="">
+              <p class="text-muted text-uppercase p-0 m-0">light</p>
+              <p class="m-0">This plant can manage in a bright locations as well as a few metres away from a window.</p>
+            </div>
+          </div>
+          <!-- end of second line -->
+          <!-- third line -->
+          <div class="product-description d-flex">
+            <i class="fas fa-hand-holding-heart fa-2x mr-4 align-self-center fa-fw p-1 holding-heart"></i>
+            <div class="">
+              <p class="text-muted text-uppercase p-0 m-0">care</p>
+              <p class="m-0">Carefree-Water sparingly, only a few times a month.</p>
+            </div>
+          </div>
+          <!-- end of third line -->
+          <button class="product-btn w-100 my-5 mx-auto btn btn-lg btn-dark text-capitalize">Add to cart</button>
+          <div class="shipping-guide d-flex justify-content-between" data-toggle="modal"
+            data-target="#shipping-guideScrollable">
+            <p class="text-capitalize mt-2 my-2 align-self-center">shipping guide</p>
+            <i class="fas fa-plus align-self-center"></i>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- store list section -->
+  <!-- end of single product section -->
+
+
+  <!-- shipping modal -->
+  <div class="modal fade" id="shipping-guideScrollable" tabindex="-1" role="dialog" aria-labelledby="shipping-label"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-body d-flex p-0 mb-0">
+          <!-- modal image -->
+          <div class="row">
+            <div class="modal-img col-lg-5 m-0 p-0">
+              <img src="img/delivery.jpg" class="img-fluid" alt="cactus">
+            </div>
+            <!-- modal text -->
+            <div class="modal-text col-lg-5 mx-4 py-5  shippingModal">
+              <h2>Shipping Information</h1>
+                <ul class="mb-0 shipping-info">
+                  <li>Free shopping over $100</li>
+                  <li>Shipping only available in Ontario</li>
+                  <li>We do not ship over the weekend!</li>
+                  <li>Each plant is carefully packaged with Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Velit,
+                    quos!</li>
+                  <li>Every shipping includes tracking information lorem ipsum, dolor sit amet consectetur adipisicing
+                    elit.Esse, delectus.</li>
+                  <li>Shipped within 5 days of order</li>
+                </ul>
+            </div>
+            <!-- close button -->
+            <div class="modal-close">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class="far fa-times-circle"></i></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end of shipping modal -->
 
   <!-- favourite section -->
   <section class="favourite my-5" id="favourite">
@@ -262,6 +207,27 @@
     </div>
   </section>
   <!-- end of favourite section -->
+
+  <!-- back to store btn -->
+  <a href="store.html" class="back-btn">
+    <button class="my-4 mx-auto btn btn-lg btn-outline-dark text-capitalize d-flex">
+      <i class="fas fa-long-arrow-alt-left align-self-center mr-2"></i>back to store
+    </button>
+  </a>
+  <!-- end of back to store btn -->
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

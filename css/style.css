@@ -1,5 +1,5 @@
 :root {
-  --dark-color: #090F14;
+  --dark-color: #23272B;
   --olive: #B2D3A6;
   --green: #00ba69;
   --darkGreen: #214F3D;
@@ -431,7 +431,7 @@ h1 {
   overflow: hidden;
   cursor: pointer;
   position: relative;
-  
+
 }
 
 .plant-img-div img {
@@ -445,16 +445,16 @@ h1 {
   left: 50%;
   transform: translateX(-50%);
   background-color: white;
-  border:white;
+  border: white;
   opacity: 0.8;
-  font-size:1.5rem;
+  font-size: 1.5rem;
   visibility: hidden;
 }
 
-.add-btn:hover{
+.add-btn:hover {
   background-color: white;
-  border:white;
-  opacity:1;
+  border: white;
+  opacity: 1;
   color: var(--dark-color);
 }
 
@@ -465,4 +465,120 @@ h1 {
 /* favourite */
 .favourite .horizontal-line {
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+/* ----------single prodcut section-------- */
+.shipping-guide {
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
+  cursor: pointer
+}
+
+.ruler {
+  color: var(--green);
+}
+
+.sun {
+  color: tomato;
+}
+
+.holding-heart {
+  color: rgb(212, 80, 80);
+}
+
+/* modal */
+.shipping-info li {
+  margin: 0.5rem 0;
+}
+
+.shippingModal {
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.close {
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 992px) {
+  .modal-img img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.back-btn:hover {
+  text-decoration: none;
+}
+
+
+/* cart */
+.cart-container {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 98;
+  display: none;
+}
+
+.cart-container.show-cart-modal {
+  display: block;
+}
+
+.cart-modal {
+  background-color: #fff;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 350px;
+  z-index: 98;
+  animation-name: cartopen;
+  animation-duration: 0.5s;
+  overflow:auto;
+}
+
+@keyframes cartopen{
+  from{
+    transform: translateX(350px);
+  }
+  to{
+    transform: translateX(0);
+  }
+}
+
+.cart-notification {
+  background-color: #EEEEEE;
+}
+
+.cart-added {
+  position: relative;
+}
+
+.cart-close {
+  position: absolute;
+  right: 10px;
+  top: 1rem;
+}
+
+.continue-btn:hover {
+  background: var(--light-color);
+  color: #000;
+}
+
+.cart-item{
+  border-bottom: 1px solid #eeeeee;
+  width:90%;
+  margin:1rem auto;
+
 }
