@@ -1,5 +1,5 @@
-import { data } from './data.js';
 import { showCartModal, showTotals } from './cartModal.js';
+import CreatePlants from './createPlant.js';
 
 // show loader when loading...
 window.addEventListener('load', () => document.querySelector('.loader').classList.add('hideLoader'));
@@ -12,24 +12,24 @@ const DisplayProduct = ((plantData) => {
   const singlePlant = document.querySelector('#singlePlant');
   singlePlant.innerHTML = '';
 
-  plantData.forEach(plant => {
+  plantData.plants.forEach(plant => {
 
     if (plant.id == urlId) {
       singlePlant.innerHTML = `
       <div class="col-md-5">
-      <div class="product-img">
-        <img src="${plant.img}" class="img-fluid mb-3" alt="plant product">
+        <div class="product-img">
+          <img src="${plant.img}" class="img-fluid mb-3" alt="plant product">
+        </div>
       </div>
-    </div>
-    <div class="col-md-6 col-sm-9 col-11 mx-auto">
-      <div class="product-content mb-5">
-        <h1 class="text-capitalize mb-3">${plant.name}</h1>
-        <h4>$<span>${plant.price}</span></h4>
-        <h5>Get a taste of the tropical forest</h5>
-      </div>
-      <!-- first line -->
-      <div class="product-description d-flex mb-4">
-        <i class="fas fa-ruler-vertical mr-4 align-self-center fa-2x fa-fw ruler"></i>
+      <div class="col-md-6 col-sm-9 col-11 mx-auto">
+        <div class="product-content mb-5">
+          <h1 class="text-capitalize mb-3">${plant.name}</h1>
+          <h4>$<span>${plant.price}</span></h4>
+          <h5>Get a taste of the tropical forest</h5>
+        </div>
+        <!-- first line -->
+        <div class="product-description d-flex mb-4">
+          <i class="fas fa-ruler-vertical mr-4 align-self-center fa-2x fa-fw ruler"></i>
         <div class="">
           <p class="text-muted text-uppercase p-0 m-0">pot & plant combined size</p>
           <p class="m-0">${plant.sizeDescription}</p>
@@ -68,7 +68,7 @@ const DisplayProduct = ((plantData) => {
   showCartModal();
   addToCart();
 
-})(data);
+});
 
 function addToCart() {
   const open = document.querySelector('#open');
@@ -109,3 +109,12 @@ function addToCart() {
     showTotals();
   });
 }
+
+fetch('data/data.json')
+  .then((response) => {
+    return response.json()
+  })
+  .then((data) => {
+    const plants = CreatePlants(data.data);
+    DisplayProduct(plants);
+  })
