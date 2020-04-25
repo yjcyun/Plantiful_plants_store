@@ -1,28 +1,32 @@
 // show loader when loading...
 window.addEventListener('load', () => document.querySelector('.loader').classList.add('hideLoader'));
 
-// const data = [
-//   {
-//     id: 1,
-//     size: 'small',
-//     sizeDescription: 'Small 6"-10" tall',
-//     name: 'anthurium superbum',
-//     img: 'img/small-1.jpg', price: '23',
-//     best: true,
-//     featured: false,
-//     description: 'Best selling plant from our store. Grab it before it`s gone!'
-//   },
-//   {id:2,
-//     size:'small', sizeDescription:'Small 6"-10" tall', name:'snake plant', img'img/small-2.jpg',price:'25', false, true, 'Our staff`s pick. A wonderful addition to'}
-
-// ]
-
 const CreatePlants = (() => {
+  const data = [
+    { id: 1, size: 'small', sizeDescription: 'Small 6"-10" tall', name: 'anthurium superbum',
+      img: 'img/small-1.jpg', price: '23', best: true, featured: false, description: 'Best selling plant from our store. Grab it before it`s gone!'},
+    { id: 2, size: 'small', sizeDescription: 'Small 6"-10" tall', name: 'snake plant', img: 'img/small-2.jpg', price: '25', best: false, featured: true, description: 'Our staff`s pick. A wonderful addition to' },
+    { id: 3, size: 'small', sizeDescription: 'Small 6"-10" tall', name: 'snake plant', img: 'img/small-2.jpg', price: '25', best: false, featured: true, description: 'Our staff`s pick. A wonderful addition to' },
+    { id: 4, size: 'small', sizeDescription: 'Small 6"-10" tall', name: 'pink princess', img: 'img/small-3.jpg', price: '20', best: false, featured: false, description: 'Pink pincess is lorem ipsum blah blooo' },
+    { id: 5, size: 'small', sizeDescription: 'Small 6"-10" tall', name: 'zanzibar gem', img: 'img/small-4.jpg', price: '15', best: false, featured: false, description: 'You can`t go wrong with carefree plants' },
+    { id: 6, size: 'small', sizeDescription: 'Small 6"-10" tall', name: 'lorem ipsum', img: 'img/small-5.jpg', price: '20', best: true, featured: false, description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates.' },
+    // medium
+    { id: 7, size: 'medium', sizeDescription: 'Medium 9"-15" tall', name: 'purple rain', img: 'img/medium-1.jpg', price: '37', best: false, featured: true, description: 'Lorem ipsum dolor sit amet consectetur' },
+    { id: 8, size: 'medium', sizeDescription: 'Medium 9"-15" tall', name: 'mammillaria', img: 'img/medium-2.jpg', price: '45', best: true, featured: false, description: 'Best selling plant from our store. Grab it before it`s gone!' },
+    { id: 9, size: 'medium', sizeDescription: 'Medium 9"-15" tall', name: 'coronavirus', img: 'img/medium-3.jpg', price: '40', best: false, featured: false, description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat, volupta' },
+    // large
+    { id: 10, size: 'large', sizeDescription: 'Large 15"-30" tall', name: 'cereus peruvianus', img: 'img/large-1.jpg', price: '80', best: false, featured: true, description: 'Lorem ipsum dolor sit amet elit. Itaque' },
+    { id: 11, size: 'large', sizeDescription: 'Large 15"-30" tall', name: 'banana tree', img: 'img/large-2.jpg', price: '100', best: false, featured: true, description: 'You can`t go wrong with carefree plants' },
+    { id: 12, size: 'large', sizeDescription: 'Large 15"-30" tall', name: 'euphorbia trigona', img: 'img/large-3.jpg', price: '85', best: true, featured: false, description: 'ipsum dolor, sit amet consectetur adipisicing elit.' },
+    { id: 13, size: 'large', sizeDescription: 'Large 15"-30" tall', name: 'pineapple plant', img: 'img/large-4.jpg', price: '130', best: false, featured: false, description: 'You can`t go wrong with carefree plants' }
+  ];
+
   const plants = [];
 
   // template
   class Plant {
-    constructor(size, sizeDescription, name, img, price, best, featured, description) {
+    constructor(id, size, sizeDescription, name, img, price, best, featured, description) {
+      this.id = id;
       this.size = size;
       this.sizeDescription = sizeDescription;
       this.name = name;
@@ -35,36 +39,20 @@ const CreatePlants = (() => {
   };
 
   // create plant function
-  function createPlant(size, sizeDescription, name, img, price, best, featured, description) {
-    const plant = new Plant(size, sizeDescription, name, img, price, best, featured, description);
+  function createPlant(id, size, sizeDescription, name, img, price, best, featured, description) {
+    const plant = new Plant(id, size, sizeDescription, name, img, price, best, featured, description);
     plants.push(plant);
   };
 
   // make plants
   function makePlants() {
-    // data.forEach((datum) => {
-    //   creaePlant(datum.size, datum.size)
-    // })
-
-    // small
-   // createPlant('small', 'Small 6"-10" tall', 'anthurium superbum', 'img/small-1.jpg', '23', true, false, 'Best selling plant from our store. Grab it before it`s gone!');
-    createPlant('small', 'Small 6"-10" tall', 'snake plant', 'img/small-2.jpg', '25', false, true, 'Our staff`s pick. A wonderful addition to');
-    createPlant('small', 'Small 6"-10" tall', 'pink princess', 'img/small-3.jpg', '20', false, false, 'Pink pincess is lorem ipsum blah blooo');
-    createPlant('small', 'Small 6"-10" tall', 'zanzibar gem', 'img/small-4.jpg', '15', false, false, 'You can`t go wrong with carefree plants');
-    createPlant('small', 'Small 6"-10" tall', 'lorem ipsum', 'img/small-5.jpg', '20', true, 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates.');
-    // medium
-    createPlant('medium', 'Medium 9"-15" tall', 'purple rain', 'img/medium-1.jpg', '37', false, true, 'Lorem ipsum dolor sit amet consectetur');
-    createPlant('medium', 'Medium 9"-15" tall', 'mammillaria', 'img/medium-2.jpg', '45', true, false, 'Best selling plant from our store. Grab it before it`s gone!');
-    createPlant('medium', 'Medium 9"-15" tall', 'coronavirus', 'img/medium-3.jpg', '40', false, false, 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat, volupta');
-    // large
-    createPlant('large', 'Large 15"-30" tall', 'cereus peruvianus', 'img/large-1.jpg', '80', false, true, 'Lorem ipsum dolor sit amet elit. Itaque');
-    createPlant('large', 'Large 15"-30" tall', 'banana tree', 'img/large-2.jpg', '100', false, true, 'You can`t go wrong with carefree plants');
-    createPlant('large', 'Large 15"-30" tall', 'euphorbia trigona', 'img/large-3.jpg', '85', true, false, 'ipsum dolor, sit amet consectetur adipisicing elit.');
-    createPlant('large', 'Large 15"-30" tall', 'pineapple plant', 'img/large-4.jpg', '130', false, false, 'You can`t go wrong with carefree plants');
+    data.forEach(datum => {
+      createPlant(datum.id, datum.size, datum.sizeDescription, datum.name, datum.img, datum.price, datum.best, datum.featured, datum.description);
+    });
   };
 
   makePlants();
-
+  console.log(plants);
   // best sellers
   const bestSellers = plants.filter(plant => plant.best === true);
   const featuredPlants = plants.filter(plant => plant.featured === true);
@@ -73,6 +61,7 @@ const CreatePlants = (() => {
     bestSellers,
     featuredPlants
   };
+
 })();
 
 // index.html
