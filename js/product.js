@@ -70,6 +70,50 @@ const DisplayProduct = ((plantData) => {
 
 });
 
+const DisplayBestSellers = ((plants) => {
+  const bestSellers = plants.bestSellers;
+
+  const favouriteInfo = document.getElementById('favourite-info');
+
+  favouriteInfo.innerHTML = '';
+
+  let data = '';
+  bestSellers.forEach(best => {
+    data += `
+      <!-- single item -->
+      <div class="col-md-3 col-6">
+        <div class="card plant-card">
+          <div class="plant-img-div">
+            <a href="product.html?id=${best.id}" id="singlePlantLink">
+              <img src="${best.img}" alt="plant" class="card-img-top plant-img">
+            </a>
+            <button class="btn btn-outline-dark add-btn" id="open">add to cart</button>
+          </div>
+          <!-- card body -->
+          <div class="card-body px-0">
+          <div class="plant-info d-flex justify-content-between">
+            <!-- first flex child -->
+            <div class="plant-text justify-content-start">
+              <h6 class="text-muted"></h6>
+              <a href="product.html?id=${best.id}" class="text-dark">
+               <h5 class="text-capitalize plant-name">${best.name}</h5>
+              </a>
+            </div>
+            <!-- second flex child -->
+            <div class="plant-value align-self-center">
+              $<span class="plant-price">${best.price}</span>
+            </div>
+          </div>
+        </div>
+          <!-- end of card body -->
+        </div>
+      </div>
+      <!-- end of single item -->`
+
+    favouriteInfo.innerHTML = data;
+  });
+});
+
 function addToCart() {
   const open = document.querySelector('#open');
 
@@ -117,4 +161,5 @@ fetch('data/data.json')
   .then((data) => {
     const plants = CreatePlants(data.data);
     DisplayProduct(plants);
+    DisplayBestSellers(plants);
   })
